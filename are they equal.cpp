@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream>    //cout,cin 所需要的头文件
 #include <string>
 using namespace std;
 int n; //有效位数
