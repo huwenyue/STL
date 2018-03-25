@@ -8,7 +8,7 @@ struct NODE{
 }node[maxn];
 int main(){
     for (int i=0; i<maxn; i++) {
-        node[i].flag = false;
+        node[i].flag = false;    //对静态链表初始化
     }
     int s1,s2,n;  //s1,s2分别代表两条链表的首地址;n为结点总数
     scanf("%d%d%d",&s1,&s2,&n);
