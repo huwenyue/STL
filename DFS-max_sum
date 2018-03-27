@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <vector>
+using namespace std;
+const int maxn = 101;
+int n,k,x,maxSumSqu=-1,A[maxn];  //序列A中n个数选k个数使得和为x，最大平方和为maxSumSqu
+vector<int> temp,ans;   //temp存放临时方案，ans存放平方和最大的方案
+//当前处理index号整数，当前已选整数个数为nowK
+//当前已选整数之和为sum,当前已选整数平方和为sumSqu
+void DFS(int index,int nowK,int sum,int sumSqu){
+    if (nowK==k && sum==x) {
+        //找到k个数的和为x
+        if(sumSqu>maxSumSqu){
+            //如果比当前找到的更优
+            maxSumSqu = sumSqu;  //更新最大平方和
+            ans = temp;   //更新最优方案
+        }
+        return;
+    }
+    //已经处理完n个数，或者超过k个数，或者超过x，返回
+    if(index==n||nowK>k||sum>x)
+        return;
+    //进入选index号数这条分支
+    temp.push_back(A[index]);
+    DFS(index+1, nowK+1, sum+A[index], sumSqu+A[index]*A[index]);
+    //这条分支结束时，把它从temp中去除，使之不会影响不选index号数这条分支
+    temp.pop_back();
+    //不选index号数
+    DFS(index+1, nowK, sum, sumSqu);
+}
+
