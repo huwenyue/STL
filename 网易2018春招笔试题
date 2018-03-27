@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <algorithm>
+using namespace std;
+
+const int maxn = 111;
+struct Node{
+    int hi;
+    int mi;
+}node[maxn];
+bool cmp(Node a,Node b){
+    if (a.hi != b.hi) {
+        return a.hi > b.hi;
+    }
+    return a.mi>b.mi;
+    
+}
+int main(){
+    int n;
+    scanf("%d",&n);   //闹钟数量
+    for (int i=0; i<n; i++) {
+        scanf("%d%d",&node[i].hi,&node[i].mi);
+    }
+    int m;    //路上时间
+    scanf("%d",&m);
+    int A,B;
+    scanf("%d%d",&A,&B);  //上课时间
+    
+    sort(node, node+n, cmp);   //将时间晚的放前面
+    
+    for (int i=0; i<n; i++) {
+        if(node[i].mi + m >=120){
+            node[i].hi+=2;
+            node[i].mi = node[i].mi + m - 120;
+        }
+        else if (node[i].mi+m >=60){
+            node[i].hi+=1;
+            node[i].mi = node[i].mi + m - 60;
+        }
+        if (node[i].hi < A) {
+            printf("%d %d",node[i].hi,node[i].mi);
+            break;
+        }
+        else if (node[i].hi==A && node[i].mi <= B){
+            printf("%d %d",node[i].hi,node[i].mi);
+            break;
+        }
+        
+    }
+    return 0;
+}
+
