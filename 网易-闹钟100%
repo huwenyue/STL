@@ -1,0 +1,27 @@
+#include <cstdio>
+using namespace std;
+int h[160],m[160];
+int main(){
+    int ansh=0,ansm=0,n,x,a,b;
+    int temp1,temp2;
+    scanf("%d",&n);  //输入闹钟数量
+    for (int i=0; i<n; i++) {
+        //闹钟响起时间
+        scanf("%d%d",&h[i],&m[i]);
+    }
+    scanf("%d",&x);  //路程时间
+    scanf("%d%d",&a,&b); //上课时间
+    for (int i=0; i<n; i++) {
+        temp1 = m[i]+x;
+        temp2 = h[i]+temp1/60;   //到达教室时间
+        temp1 = temp1%60;  //分钟
+        if (temp2<a || (temp2==a && temp1<=b) ) {
+            if (h[i]>ansh ||(h[i]==ansh && m[i]>ansm)) {
+                ansh = h[i];
+                ansm = m[i];
+            }
+        }
+    }
+    printf("%d %d",ansh,ansm);
+    return 0;
+}
