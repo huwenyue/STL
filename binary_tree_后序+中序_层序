@@ -13,7 +13,7 @@ struct node{
 int pre[maxn], in[maxn],post[maxn];   //先序，中序，后序
 int n;  //结点个数
 
-//当前先序序列区间为[preL,preR],中序序列区间为[inL,inR]
+//当前后序序列区间为[postL,postR],中序序列区间为[inL,inR]
 //create函数返回构建出的二叉树的根结点地址
 node* create(int postL,int postR,int inL,int inR){
     if (postL>postR) {
