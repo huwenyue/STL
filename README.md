@@ -46,4 +46,14 @@ yes 0.123*10^5
 
 4. 数组排序（sort）  
 
-5. 输出有效结点。
+5. 输出有效结点。  
+
+## 二分搜索
+STL在库中提供了binary_search，lower_bound,upper_bound.  
+
+1)lower_bound是一种应用于有序数据范围内的算法，它可以返回一个迭代器，这个迭代器指向第一个不小于制定值value的元素。  
+
+2）upper_bound返回的迭代器指向第一个大于指定值value的元素。  
+
+
+
