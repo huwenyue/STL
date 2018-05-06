@@ -55,5 +55,5 @@ STL在库中提供了binary_search，lower_bound,upper_bound.
 
 2）upper_bound返回的迭代器指向第一个大于指定值value的元素。  
 
-
+3）lower_bound(A,A+14,3),指定了数组A的头指针；数组的末尾；指定的value.  
 
