@@ -1,0 +1,29 @@
+//迭代器举例
+#include<iostream>
+#include <vector>
+using namespace std;
+void print(vector<int> v){
+    //向量开头顺次访问
+    vector<int>::iterator it;  //声明迭代器it
+    for (it = v.begin(); it!=v.end(); it++) {
+        cout<< *it;
+    }
+    cout<<endl;
+}
+int main(){
+    int n = 4;
+    vector<int> v;
+    for (int i=0; i<n; i++) {
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+    print(v);
+    
+    vector<int>::iterator it = v.begin();
+    *it = 3;   //更改vector的开头元素v[0]
+    it++;   //v[1]
+    (*it)++;   //v[1]的元素+1
+    print(v);
+    return 0;
+}
