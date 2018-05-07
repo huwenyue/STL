@@ -57,3 +57,6 @@ STL在库中提供了binary_search，lower_bound,upper_bound.
 
 3）lower_bound(A,A+14,3),指定了数组A的头指针；数组的末尾；指定的value.  
 
+若A是vector则可以使用A.begin()和A.end()来指定范围。  
+
+distance函数用于返回两个指针间的距离
