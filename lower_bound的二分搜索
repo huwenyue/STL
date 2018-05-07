@@ -1,0 +1,28 @@
+//使用lower_bound的二分搜索
+/*
+ 5
+ 1 2 3 4 5
+ 2
+ 3 4
+ 
+ 2
+ */
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int A[10000],n;
+int main(){
+    cin>>n;
+    for (int i=0; i<n; i++) {
+        scanf("%d",&A[i]);  //循环输入n个数,升序
+    }
+    int q,k,sum=0;
+    cin>>q;
+    for (int i=0; i<q; i++) {
+        scanf("%d",&k);
+    //使用标准库中的lower_bound
+    if(*lower_bound(A, A+n, k)==k) sum++;  //若返回的第一个不小于k的元素值==k，则找到了
+    }
+    cout<<sum<<endl;
+    return 0;
+}
